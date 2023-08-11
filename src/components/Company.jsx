@@ -4,13 +4,13 @@ const Company = () => {
   const { logo, companyData } = useSelector((state) => state.search);
 
   return (
-    <div className="relative flex flex-col justify-center h-96 overflow-y-scroll">
+    <div className="relative flex flex-col justify-center h-96">
       <img
         src={logo}
         alt="Company Logo"
         className="rounded-2xl text-almond max-h-full max-w-full"
       />
-      <div className="stats stats-vertical shadow bg-walnutBrown">
+      <div className="stats stats-vertical shadow bg-walnutBrown overflow-y-scroll">
         <div className="stat">
           <div className="stat-title text-almond">Price</div>
           <div className="stat-value text-almond">
