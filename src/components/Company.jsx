@@ -25,7 +25,7 @@ const Company = () => {
         className="rounded-2xl text-almond max-h-full max-w-full"
       />
       <div className="stats stats-vertical shadow bg-walnutBrown overflow-y-scroll">
-        {fields.map(field => (
+        {fields.map(field => ( (field.data !== undefined) &&
           <div className="stat" key={field.id}>
             <div className="stat-title text-almond">{field.name}</div>
             <div className="stat-value text-almond">{field.data}</div>
