@@ -2,7 +2,7 @@ import { Chart, Company, Spinner, News } from "../components";
 import { useSelector } from "react-redux";
 
 const Stocks = () => {
-  const { isLoading, companyNews, companyData } = useSelector(
+  const { isLoading, companyNews, profileData } = useSelector(
     (state) => state.search
   );
 
@@ -21,10 +21,9 @@ const Stocks = () => {
             <Company />
           </div>
           <div className="h-96 card min-w-[60%] w-[60%] bg-walnutBrown rounded-box flex text-center overflow-y-scroll">
-            <h2 className="text-lg pt-6 text-almond">Description:</h2>
-            {companyData === null ? null : (
+            {profileData === null ? null : (
               <p className="text-almond p-6">
-                {companyData.assetProfile.longBusinessSummary}
+                {profileData.longBusinessSummary}
               </p>
             )}
           </div>

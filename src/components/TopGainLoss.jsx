@@ -23,30 +23,30 @@ const Table = ({ data, title }) => {
             </tr>
           </thead>
           <tbody>
-            {data.map((stock, id) => (
+            {data.body.map((stock, id) => (
               <tr className="hover:bg-khaki" key={id}>
                 <th className="text-almond">{id + 1}</th>
                 <td
                   className="text-almond"
                   onClick={() => {
-                    dispatch(getStockData(stock.ticker));
-                    dispatch(setStockRoute(stock.ticker));
+                    dispatch(getStockData(stock.symbol));
+                    dispatch(setStockRoute(stock.symbol));
                   }}
                 >
-                  <Link to={`Stocks/${stock.ticker}`} key={id}>
-                    {stock.ticker}
+                  <Link to={`Stocks/${stock.symbol}`} key={id}>
+                    {stock.symbol}
                   </Link>{" "}
                 </td>
                 <td className="text-almond">
-                  {stock.price}{" "}
+                  {"$" + stock.regularMarketPrice + " "}
                   <div
                     className={`inline-flex gap-2 self-end rounded px-1 py-2 ${
-                      parseFloat(stock.change_amount) < 0
+                      parseFloat(stock.regularMarketChange) < 0
                         ? "text-red-600"
                         : "text-green-600"
                     } `}
                   >
-                    {parseFloat(stock.change_amount) < 0 ? (
+                    {parseFloat(stock.regularMarketChange) < 0 ? (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-4 w-4"
@@ -77,14 +77,14 @@ const Table = ({ data, title }) => {
                         />
                       </svg>
                     )}
-                    <span className="text-sm font-medium pt-[1px]">{`${parseFloat(
-                      stock.change_amount
+                    <span className="text-sm font-medium pt-[1px]">{`${"$" + parseFloat(
+                      stock.regularMarketChange
                     ).toFixed(2)} (${parseFloat(
-                      stock.change_percentage
-                    ).toFixed(2)})`}</span>
+                      stock.regularMarketChangePercent
+                    ).toFixed(2) + "%"})`}</span>
                   </div>
                 </td>
-                <td className="text-almond">{stock.volume}</td>
+                <td className="text-almond">{stock.regularMarketVolume}</td>
               </tr>
             ))}
           </tbody>
@@ -95,22 +95,22 @@ const Table = ({ data, title }) => {
 };
 
 const TopGainLoss = () => {
-  const { gainData } = useSelector((state) => state.home);
+  const { gainData, loseData, activeData } = useSelector((state) => state.home);
 
   return (
-    <div className="flex flex-col w-full lg:flex-row gap-x-8 px-12 justify-around">
+    <div className="flex flex-col w-full 2xl:flex-row gap-x-8 px-12 justify-around">
       {gainData === null || (
-        <Table data={gainData.top_gainers} title={"Top Gainers"} />
+        <Table data={gainData} title={"Top Gainers"} />
       )}
       <div className="divider xs:divider-horizontal" />
-      {gainData === null || (
-        <Table data={gainData.top_losers} title={"Top Losers"} />
+      {loseData === null || (
+        <Table data={loseData} title={"Top Losers"} />
       )}
       <div className="divider xs:divider-horizontal" />
-      {gainData === null || (
+      {activeData === null || (
         <Table
-          data={gainData.most_actively_traded}
-          title={"Most Actively Traded"}
+          data={activeData}
+          title={"Most Active"}
         />
       )}
     </div>

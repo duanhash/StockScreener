@@ -1,7 +1,21 @@
 import { useSelector } from "react-redux";
 
 const Company = () => {
-  const { logo, companyData } = useSelector((state) => state.search);
+  const { logo, financialData, keyStatisticsData } = useSelector((state) => state.search);
+
+  const fields = [
+    {id: "currentPrice", name: "Price", data: financialData.currentPrice.fmt},
+    {id: "totalCash", name: "Total Cash", data: financialData.totalCash.fmt},
+    {id: "ebitda", name: "EBITDA", data: financialData.ebitda.fmt},
+    {id: "totalDebt", name: "Total Debt", data: financialData.totalDebt.fmt},
+    {id: "grossProfits", name: "Gross Profits", data: financialData.grossProfits.fmt},
+    {id: "enterpriseValue", name: "Enterprise Value", data: keyStatisticsData.enterpriseValue.fmt},
+    {id: "sharesOutstanding", name: "Shares Outstanding", data: keyStatisticsData.sharesOutstanding.fmt},
+    {id: "sharesShort", name: "Shares Short", data: keyStatisticsData.sharesShort.fmt},
+    {id: "bookValue", name: "Book Value (Per Share)", data: keyStatisticsData.bookValue.fmt},
+    {id: "trailingEps", name: "Trailing EPS", data: keyStatisticsData.trailingEps.fmt},
+    {id: "forwardEps", name: "Forward EPS", data: keyStatisticsData.forwardEps.fmt}
+  ]
 
   return (
     <div className="relative flex flex-col justify-center h-96">
@@ -11,42 +25,12 @@ const Company = () => {
         className="rounded-2xl text-almond max-h-full max-w-full"
       />
       <div className="stats stats-vertical shadow bg-walnutBrown overflow-y-scroll">
-        <div className="stat">
-          <div className="stat-title text-almond">Price</div>
-          <div className="stat-value text-almond">
-            {companyData.financialData.currentPrice.fmt}
+        {fields.map(field => (
+          <div className="stat" key={field.id}>
+            <div className="stat-title text-almond">{field.name}</div>
+            <div className="stat-value text-almond">{field.data}</div>
           </div>
-        </div>
-        <div className="stat">
-          <div className="stat-title text-almond">52 Week Change</div>
-          <div className="stat-value text-almond">
-            {companyData.defaultKeyStatistics["52WeekChange"].fmt}
-          </div>
-        </div>
-        <div className="stat">
-          <div className="stat-title text-almond">Shares Outstanding</div>
-          <div className="stat-value text-almond">
-            {companyData.defaultKeyStatistics.sharesOutstanding.fmt}
-          </div>
-        </div>
-        <div className="stat">
-          <div className="stat-title text-almond">Short Interest</div>
-          <div className="stat-value text-almond">
-            {companyData.defaultKeyStatistics.sharesShort.fmt}
-          </div>
-        </div>
-        <div className="stat">
-          <div className="stat-title text-almond">PB Ratio</div>
-          <div className="stat-value text-almond">
-            {companyData.defaultKeyStatistics.priceToBook.fmt}
-          </div>
-        </div>
-        <div className="stat">
-          <div className="stat-title text-almond">Revenue Growth</div>
-          <div className="stat-value text-almond">
-            {companyData.financialData.revenueGrowth.fmt}
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
