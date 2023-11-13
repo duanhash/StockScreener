@@ -15,12 +15,12 @@ const SearchResults = ({
   const dispatch = useDispatch();
 
   return (
-    <div className="w-full bg-almond flex flex-col shadow-xl rounded-xl max-h-[300px] overflow-y-scroll absolute z-20">
+    <div className="w-full bg-base-100 flex flex-col shadow-xl rounded-xl max-h-[300px] overflow-y-scroll absolute z-20">
       {input &&
         filteredResults.map((stock, id) => (
           <Link to={`Stocks/${stock}`} key={id}>
             <div
-              className="py-3 px-5 text-newBlack hover:bg-khaki"
+              className="py-3 px-5 text-white hover:bg-secondary"
               onClick={() => {
                 setInput(stock);
                 setAlert(false);
@@ -77,7 +77,7 @@ const SearchBar = () => {
         <div className="relative">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="absolute top-0 bottom-0 w-6 h-6 my-auto text-almond left-3"
+            className="absolute top-0 bottom-0 w-6 h-6 my-auto text-white left-3"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -93,7 +93,7 @@ const SearchBar = () => {
             type="text"
             placeholder="U.S. Stocks Only"
             value={input}
-            className="w-full py-3 pl-12 pr-3 text-almond border-isabelline border-2 rounded-md outline-none bg-newBlack focus:border-khaki"
+            className="w-full py-3 pl-12 pr-3 text-white border-white border-2 rounded-md outline-none bg-base-100 focus:border-secondary"
             onChange={searchItems}
           />
         </div>

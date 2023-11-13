@@ -3,7 +3,7 @@ import { Navbar, Footer } from "../components";
 
 const Layout = () => {
   return (
-    <div className="relative h-full w-full bg-newBlack z-0">
+    <div className="relative h-full w-full bg-base-100 z-0">
       <Navbar />
       <div className="py-20">
         <Outlet />

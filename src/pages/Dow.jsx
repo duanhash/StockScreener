@@ -30,7 +30,7 @@ const Dow = () => {
     <section className="z-10 mt-24 pb-24 relative">
       {data.map((record, id) => (
         <div
-          className="collapse collapse-arrow bg-walnutBrown text-almond w-[60%] mx-auto my-10"
+          className="collapse collapse-arrow bg-neutral text-white w-[60%] mx-auto my-10"
           key={id}
         >
           <input type="radio" name="my-accordion-3" />

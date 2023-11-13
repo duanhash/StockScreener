@@ -17,7 +17,7 @@ const News = ({ newsData, isLoading }) => {
       {newsData === null || (
         <>
           <a href={newsData[0].article_url} target="_blank">
-            <div className="card lg:card-side bg-walnutBrown shadow-xl lg:px-8 h-full w-[95%] mx-auto">
+            <div className="card lg:card-side bg-neutral shadow-xl lg:px-8 h-full w-[95%] mx-auto">
               <figure>
                 <img
                   src={newsData[0].image_url}
@@ -26,22 +26,22 @@ const News = ({ newsData, isLoading }) => {
                 />
               </figure>
               <div className="card-body h-96 overflow-y-scroll">
-                <h2 className="card-title text-almond">{newsData[0].title}</h2>
-                <span className="text-xs text-almond">
+                <h2 className="card-title text-white">{newsData[0].title}</h2>
+                <span className="text-xs text-white">
                   {new Date(newsData[0].published_utc).toUTCString()}
                 </span>
-                <p className="text-almond">{newsData[0].description}</p>
+                <p className="text-white">{newsData[0].description}</p>
                 <div className="card-actions justify-start">
                   {newsData[0].keywords &&
                     newsData[0].keywords.map((topic, id) => (
                       <div
-                        className="badge badge-outline text-almond outline-almond"
+                        className="badge badge-outline text-white outline-white"
                         key={id}
                       >{`#${topic}`}</div>
                     ))}
                   {newsData[0].tickers.map((ticker, id) => (
                     <div
-                      className="badge badge-outline text-almond outline-almond"
+                      className="badge badge-outline text-white outline-white"
                       key={id}
                     >{`${ticker}`}</div>
                   ))}
@@ -57,7 +57,7 @@ const News = ({ newsData, isLoading }) => {
                 className="mx-auto max-w-sm"
                 key={id}
               >
-                <div className="card w-full bg-walnutBrown shadow-xl">
+                <div className="card w-full bg-neutral shadow-xl">
                   <figure>
                     <img
                       src={article.image_url}
@@ -66,22 +66,22 @@ const News = ({ newsData, isLoading }) => {
                     />
                   </figure>
                   <div className="card-body h-56 overflow-y-scroll">
-                    <h2 className="card-title text-almond">{article.title}</h2>
-                    <span className="text-xs text-almond">
+                    <h2 className="card-title text-white">{article.title}</h2>
+                    <span className="text-xs text-white">
                       {new Date(article.published_utc).toUTCString()}
                     </span>
-                    <p className="text-almond">{article.description}</p>
+                    <p className="text-white">{article.description}</p>
                     <div className="card-actions justify-start">
                       {article.keywords &&
                         article.keywords.map((topic, id) => (
                           <div
-                            className="badge badge-outline text-almond outline-almond"
+                            className="badge badge-outline text-white outline-white"
                             key={id}
                           >{`#${topic}`}</div>
                         ))}
                       {article.tickers.map((ticker, id) => (
                         <div
-                          className="badge badge-outline text-almond outline-almond"
+                          className="badge badge-outline text-white outline-white"
                           key={id}
                         >{`${ticker}`}</div>
                       ))}
@@ -97,7 +97,7 @@ const News = ({ newsData, isLoading }) => {
         <div className="flex justify-center pb-16">
           <button
             type="button"
-            className="px-6 py-3 text-sm rounded-md hover:underline bg-walnutBrown text-almond"
+            className="px-6 py-3 text-sm rounded-md hover:underline bg-neutral text-white"
             onClick={showMoreItems}
           >
             Load more articles...

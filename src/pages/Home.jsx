@@ -27,11 +27,11 @@ const Home = () => {
     <>
       <section className="mx-auto max-w-screen-xl pb-4 px-4 sm:px-8 z-10">
         <div className="text-center space-y-4">
-          <h1 className="text-khaki font-bold text-4xl md:text-5xl">
+          <h1 className="text-secondary font-bold text-4xl md:text-5xl">
             Welcome to my
-            <span className="text-almond"> Stock Screener</span>
+            <span className="text-white"> Stock Screener</span>
           </h1>
-          <p className="text-khaki max-w-xl mx-auto leading-relaxed">
+          <p className="text-white max-w-xl mx-auto leading-relaxed">
             Don't navigate to the stocks page until you have searched up a stock
             or clicked on a link to a stock. You can use the search bar in the
             top right to search for any U.S. stock. You can scroll down to find

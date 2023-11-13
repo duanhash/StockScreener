@@ -20,9 +20,9 @@ const Stocks = () => {
           <div className="mr-8 lg:mr-16 h-96">
             <Company />
           </div>
-          <div className="h-96 card min-w-[60%] w-[60%] bg-walnutBrown rounded-box flex text-center overflow-y-scroll">
+          <div className="h-96 card min-w-[60%] w-[60%] bg-neutral rounded-box flex text-center overflow-y-scroll">
             {profileData === null ? null : (
-              <p className="text-almond p-6">
+              <p className="text-white p-6">
                 {profileData.longBusinessSummary}
               </p>
             )}

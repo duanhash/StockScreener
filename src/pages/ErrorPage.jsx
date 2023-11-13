@@ -5,7 +5,7 @@ const ErrorPage = () => {
   console.error(error);
 
   return (
-    <section className="flex items-center sm:p-16 w-screen h-screen bg-newBlack">
+    <section className="flex items-center sm:p-16 w-screen h-screen bg-base-100">
       <div
         id="error-page"
         className="container flex flex-col items-center justify-center px-5 mx-auto my-8 space-y-8 text-center sm:max-w-md"
@@ -35,14 +35,14 @@ const ErrorPage = () => {
             points="383.958 182.63 360.042 161.37 338.671 185.412 314.63 164.042 293.37 187.958 317.412 209.329 296.042 233.37 319.958 254.63 341.329 230.588 365.37 251.958 386.63 228.042 362.588 206.671 383.958 182.63"
           ></polygon>
         </svg>
-        <p className="text-3xl text-khaki">
+        <p className="text-3xl text-white">
           <i>{error.statusText || error.message}</i>
           <br />
           This error is most likely due to one of the APIs.
         </p>
         <Link
           to="/"
-          className="bg-khaki text-newBlack btn btn-ghost rounded-btn"
+          className="bg-info text-white btn btn-ghost rounded-btn"
         >
           Back to homepage
         </Link>

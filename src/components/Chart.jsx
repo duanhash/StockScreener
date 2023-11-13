@@ -35,20 +35,20 @@ const Chart = () => {
   }, [graphData]);
 
   const options = {
-    colors: ["#C5C6D0", "#0A0908", "#22333B", "#EAE0D5", "#C6AC8F", "#5E503F"],
+    colors: ["#8b5cf6", "#414558", "#272935", "#60a5fa"],
 
     scrollbar: {
-      barBackgroundColor: "#EAE0D5",
+      barBackgroundColor: "#60a5fa",
       liveRedraw: true,
     },
 
     chart: {
       height: 600,
-      backgroundColor: "#5E503F",
+      backgroundColor: "#414558",
     },
 
     loading: {
-      color: "#EAE0D5",
+      color: "#FFFFFF",
     },
 
     credits: {
@@ -99,10 +99,10 @@ const Chart = () => {
 
       buttonTheme: {
         width: 40,
-        fill: "#EAE0D5",
+        fill: "#FFFFFF",
         r: 10,
         style: {
-          color: "#5E503F",
+          color: "#60a5fa",
           fontWeight: "bold",
         },
       },
@@ -111,7 +111,7 @@ const Chart = () => {
     title: {
       text: `${graphData.meta.symbol.toUpperCase()} Historical Price and Volume`,
       style: {
-        color: "#EAE0D5",
+        color: "#FFFFFF",
       },
     },
 
@@ -121,18 +121,18 @@ const Chart = () => {
           align: "right",
           x: -3,
           style: {
-            color: "#EAE0D5",
+            color: "#FFFFFF",
           },
         },
         title: {
           text: "OHLC",
           style: {
-            color: "#EAE0D5",
+            color: "#FFFFFF",
           },
         },
         height: "60%",
         lineWidth: 1,
-        lineColor: "#EAE0D5",
+        lineColor: "#FFFFFF",
         resize: {
           enabled: true,
         },
@@ -142,20 +142,20 @@ const Chart = () => {
           align: "right",
           x: -3,
           style: {
-            color: "#EAE0D5",
+            color: "#FFFFFF",
           },
         },
         title: {
           text: "Volume",
           style: {
-            color: "#EAE0D5",
+            color: "#FFFFFF",
           },
         },
         top: "65%",
         height: "35%",
         offset: 0,
         lineWidth: 1,
-        lineColor: "#EAE0D5",
+        lineColor: "#FFFFFF",
       },
     ],
 
@@ -163,20 +163,20 @@ const Chart = () => {
       {
         labels: {
           style: {
-            color: "#EAE0D5",
+            color: "#FFFFFF",
           },
         },
-        lineColor: "#EAE0D5",
-        tickColor: "#EAE0D5",
+        lineColor: "#FFFFFF",
+        tickColor: "#FFFFFF",
       },
     ],
 
     tooltip: {
-      backgroundColor: "#EAE0D5",
-      borderColor: "##22333B",
+      backgroundColor: "#FFFFFF",
+      borderColor: "#272935",
       split: true,
       style: {
-        color: "#22333B",
+        color: "#272935",
       },
     },
 
